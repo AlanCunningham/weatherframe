@@ -1,0 +1,62 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+	<title>PiFrame</title>
+
+	<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="{% static 'home/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="{% static 'home/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+	<!-- Javascript  -->
+
+
+</head>
+
+<body>
+	<nav role="navigation">
+		<div class="nav-wrapper container">
+			<a class="brand-logo left">{{date.day}}</a>
+			<a id="logo-container" href="#" class="brand-logo center time">00:00:00</a>
+			<a class="brand-logo right">{{date.full_date}}</a>
+		</div>
+	</nav>
+
+	<div class="section no-pad-bot" id="index-banner">
+		<div class="container">
+			<h4 class="header center">{{weather.summary}}</h4>
+			<div class="center">
+				<canvas id="icon1" class="{{weather.icon}}" width="128" height="128">
+					{{weather.icon}}
+				</canvas>
+			</div>
+			<div class="row center">
+				<h5 class="header col s12 light">A jumper should be fine</h5>
+			</div>
+			<div class="row center">
+				<div class="col s4">
+					This morning
+				</div>
+				<div class="col s4">
+					This afternoon
+				</div>
+				<div class="col s4">
+					This evening
+				</div>
+		</div>
+	</div>
+
+
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="{% static 'home/js/materialize/bin/materialize.js' %}"></script>
+	<script src="{% static 'home/js/materialize/initial.js' %}"></script>
+	<script src="{% static 'home/js/skycons.js' %}"></script>
+	<script src="{% static 'home/js/home.js' %}"></script>
+
+</body>
+</html>
