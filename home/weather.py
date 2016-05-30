@@ -8,7 +8,7 @@ import json
 
 class Weather:
 	location = {"lon": "51.4927245", "lat": "-0.2122906"}
-	api_key = ""
+	api_key = "6d73c99eb441945dcb1d1434a49db41e"
 	url = "https://api.forecast.io/forecast/"
 	result = None
 
