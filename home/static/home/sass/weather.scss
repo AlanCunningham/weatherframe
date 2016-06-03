@@ -1,0 +1,35 @@
+// Weather info screen
+
+
+.weather-info {
+	transition: background 1s ease-in;
+
+	.current-temp,
+	.min-max-temp {
+		display: inline;
+	}
+
+	.hourly-weather {
+
+		> div {
+			border-right: 1px solid white;
+		}
+
+		.cloudy {
+			background: #9e9e9e;
+		}
+
+		.partly-cloudy-day {
+			background: #bdbdbd
+		}
+
+		.sun {
+			background: #ffb300;
+		}
+
+		.rain {
+			background: #0288d1;
+		}
+
+	}
+}

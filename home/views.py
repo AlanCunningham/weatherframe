@@ -16,7 +16,9 @@ def index(request):
 	context = {
 		"greeting": "Hello there",
 		"date": current_date(),
-		"weather": weather.get_daily_weather(),
+		"daily_weather": weather.get_daily_weather(),
+		"current_weather": weather.get_current_weather(),
+		"hourly_weather": weather.get_hourly_weather(),
 	}
 	return HttpResponse(template.render(context, request))
 
@@ -27,13 +29,3 @@ def current_date():
 		"full_date": now.strftime("%x"),
 	}
 	return date
-
-def time_based_greeting():
-	hour = datetime.today().hour
-	print(hour)
-	if hour >= 4 and hour < 12:
-		return "Good morning"
-	elif hour >= 12 and hour < 17:
-		return "Good afternoon"
-	elif hour > 17 and hour < 4:
-		return "Good evening"

@@ -11,6 +11,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="{% static 'home/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="{% static 'home/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="{% static 'home/css/weather.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 	<!-- Javascript  -->
 
@@ -18,7 +19,7 @@
 </head>
 
 <body>
-	<nav role="navigation">
+	<nav class="light-blue darken-2" role="navigation">
 		<div class="nav-wrapper container">
 			<a class="brand-logo left">{{date.day}}</a>
 			<a id="logo-container" href="#" class="brand-logo center time">00:00:00</a>
@@ -26,27 +27,33 @@
 		</div>
 	</nav>
 
-	<div class="section no-pad-bot" id="index-banner">
+	<div class="section no-pad-bot weather-info" id="index-banner">
 		<div class="container">
-			<h4 class="header center">{{weather.summary}}</h4>
-			<div class="center">
-				<canvas id="icon1" class="{{weather.icon}}" width="128" height="128">
-					{{weather.icon}}
-				</canvas>
+			<h3 class="header center">{{daily_weather.summary}}</h3>
+			<div class="weather-info row center valign-wrapper">
+				<div class="col s4 temp">
+					<h1 class="light-blue-text darken-2 header current-temp">{{current_weather.temp}}°</h1>
+					<h5 class="min-max-temp grey-text">{{daily_weather.temp_low}}° | {{daily_weather.temp_high}}°</h5>
+				</div>
+				<div class="col s4">
+					<canvas id="icon1" class="{{daily_weather.icon}}" width="128" height="128">
+						{{daily_weather.icon}}
+					</canvas>
+				</div>
+				<div class="col s4">
+					<h5>Wind speeds of</h5>
+					<h4 class="light-blue-text darken-2-text lighten-1">{{daily_weather.wind_speed}}mph</h4>
+				</div>
 			</div>
 			<div class="row center">
 				<h5 class="header col s12 light">A jumper should be fine</h5>
 			</div>
-			<div class="row center">
-				<div class="col s4">
-					This morning
-				</div>
-				<div class="col s4">
-					This afternoon
-				</div>
-				<div class="col s4">
-					This evening
-				</div>
+
+			<div class="row center hourly-weather">
+			{% for hour in hourly_weather|slice:"12" %}
+				<div class="col s1 {{hour.icon}}">{{hour.time}}</div>
+			{% endfor %}
+
 		</div>
 	</div>
 
