@@ -1,6 +1,5 @@
 // Weather info screen
-
-
+@import "colorscheme";
 .weather-info {
 	transition: background 1s ease-in;
 
@@ -11,24 +10,42 @@
 
 	.hourly-weather {
 
-		> div {
-			border-right: 1px solid white;
+		> .hour {
+			border-right: 3px solid white;
+
+			&:first-child {
+				border-radius: 7px 0px 0px 7px;
+			}
+			&:last-child {
+				border-radius: 0px 7px 7px 0px;
+			}
 		}
 
 		.cloudy {
-			background: #9e9e9e;
+			background: $c_cloudy;
+		}
+
+		.fog,
+		.sleet {
+			background: $c_fog;
 		}
 
 		.partly-cloudy-day {
-			background: #bdbdbd
+			background: $c_partly_cloudy;
 		}
 
-		.sun {
-			background: #ffb300;
+		.sun,
+		.clear-day {
+			background: $c_sunny;
+		}
+
+		.clear-night {
+			background: $c_clear_night;
+			color: white;
 		}
 
 		.rain {
-			background: #0288d1;
+			background: $c_rainy;
 		}
 
 	}

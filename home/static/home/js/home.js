@@ -6,8 +6,8 @@ window.onload = init;
 function init() {
 	set_icon();
 	update_time();
-
 }
+
 
 function set_icon() {
 	weather_type = $("#icon1").attr("class");
@@ -20,20 +20,20 @@ function set_icon() {
 function get_icon_colour(weather) {
 	var default_colour = "#0288d1";
 	var colours = {
-		"sun": "#ffb300",
+		"night": "#0d47a1",
 		"rain": "#0288d1",
+		"sun": "#ffb300",
+		"clear": "#ffb300",
+		"partly-cloudy": "#ffb300",
 		"cloud": "#9e9e9e",
-		"sleet": "#9e9e9e",
-		"snow": "#9e9e9e",
-		"wind": "#9e9e9e",
-		"fog": "#9e9e9e",
+		"sleet": "#757575",
+		"snow": "#e0e0e0",
+		"wind": "#757575",
+		"fog": "#757575",
 	}
 	for (var key in colours){
 		if (weather.indexOf(key) > -1) {
-			console.log(weather + " | " + key + " | " + "Match!");
 			return colours[key];
-		} else {
-			console.log(weather + " | " + key + " | " + "No match!");
 		}
 	}
 	return default_colour;

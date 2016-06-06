@@ -29,7 +29,9 @@
 
 	<div class="section no-pad-bot weather-info" id="index-banner">
 		<div class="container">
-			<h3 class="header center">{{daily_weather.summary}}</h3>
+			<div class="summary">
+				<h3 class="center weather-summary">{{daily_weather.summary}}</h3>
+			</div>
 			<div class="weather-info row center valign-wrapper">
 				<div class="col s4 temp">
 					<h1 class="light-blue-text darken-2 header current-temp">{{current_weather.temp}}°</h1>
@@ -45,14 +47,15 @@
 					<h4 class="light-blue-text darken-2-text lighten-1">{{daily_weather.wind_speed}}mph</h4>
 				</div>
 			</div>
-			<div class="row center">
+			<div class="row center clothes-suggestion">
 				<h5 class="header col s12 light">A jumper should be fine</h5>
 			</div>
 
 			<div class="row center hourly-weather">
-			{% for hour in hourly_weather|slice:"12" %}
-				<div class="col s1 {{hour.icon}}">{{hour.time}}</div>
-			{% endfor %}
+				{% for hour in hourly_weather|slice:"1:13" %}
+					<div class="col s1 hour {{hour.icon}}">{{hour.time}}</div>
+				{% endfor %}
+			</div>
 
 		</div>
 	</div>
