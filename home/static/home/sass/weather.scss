@@ -1,11 +1,20 @@
 // Weather info screen
 @import "colorscheme";
+
+.navbar {
+	background: $c_highlight;
+}
+
 .weather-info {
 	transition: background 1s ease-in;
 
 	.current-temp,
 	.min-max-temp {
 		display: inline;
+	}
+
+	.highlight {
+		color: $c_highlight;
 	}
 
 	.hourly-weather {

@@ -1,8 +1,13 @@
+.navbar {
+  background: #0288d1; }
+
 .weather-info {
   transition: background 1s ease-in; }
   .weather-info .current-temp,
   .weather-info .min-max-temp {
     display: inline; }
+  .weather-info .highlight {
+    color: #0288d1; }
   .weather-info .hourly-weather > .hour {
     border-right: 3px solid white; }
     .weather-info .hourly-weather > .hour:first-child {

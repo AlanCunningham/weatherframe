@@ -19,7 +19,7 @@
 </head>
 
 <body>
-	<nav class="light-blue darken-2" role="navigation">
+	<nav class="navbar" role="navigation">
 		<div class="nav-wrapper container">
 			<a class="brand-logo left">{{date.day}}</a>
 			<a id="logo-container" href="#" class="brand-logo center time">00:00:00</a>
@@ -34,7 +34,7 @@
 			</div>
 			<div class="weather-info row center valign-wrapper">
 				<div class="col s4 temp">
-					<h1 class="light-blue-text darken-2 header current-temp">{{current_weather.temp}}°</h1>
+					<h1 class="header current-temp highlight">{{current_weather.temp}}°</h1>
 					<h5 class="min-max-temp grey-text">{{daily_weather.temp_low}}° | {{daily_weather.temp_high}}°</h5>
 				</div>
 				<div class="col s4">
@@ -44,7 +44,7 @@
 				</div>
 				<div class="col s4">
 					<h5>Wind speeds of</h5>
-					<h4 class="light-blue-text darken-2-text lighten-1">{{daily_weather.wind_speed}}mph</h4>
+					<h4 class="highlight">{{daily_weather.wind_speed}}mph</h4>
 				</div>
 			</div>
 			<div class="row center clothes-suggestion">
