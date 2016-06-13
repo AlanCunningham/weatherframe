@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta http-equiv="Refresh" content="3600"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 	<title>PiFrame</title>
@@ -37,8 +38,8 @@
 			</div>
 			<div class="weather-info row center valign-wrapper">
 				<div class="col s4 temp">
-					<h1 class="header current-temp highlight">{{current_weather.temp}}°</h1>
-					<h5 class="min-max-temp grey-text">{{daily_weather.temp_low}}° | {{daily_weather.temp_high}}°</h5>
+					<h1 class="header highlight">{{current_weather.temperature|floatformat:"0"}}°</h1>
+					<h5 class="min-max-temp grey-text">{{daily_weather.temperatureMin|floatformat:"0"}}° | {{daily_weather.temperatureMax|floatformat:"0"}}°</h5>
 				</div>
 				<div class="col s4">
 					<canvas id="icon1" class="{{daily_weather.icon}}" width="128" height="128">
@@ -47,11 +48,11 @@
 				</div>
 				<div class="col s4">
 					<h5>Wind speeds of</h5>
-					<h4 class="highlight">{{daily_weather.wind_speed}}mph</h4>
+					<h4 class="highlight">{{daily_weather.windSpeed|floatformat:"0"}} mph</h4>
 				</div>
 			</div>
 			<div class="row center clothes-suggestion">
-				<h5 class="header col s12 light">A jumper should be fine</h5>
+				<h5 class="header col s12 light">{{clothes_suggestion}}</h5>
 			</div>
 
 			<div class="row center hourly-weather">

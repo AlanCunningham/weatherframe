@@ -5,6 +5,7 @@
 import requests
 import json
 from datetime import datetime
+import time
 
 class Weather:
 	location = {"lon": "51.4927245", "lat": "-0.2122906"}
@@ -19,25 +20,15 @@ class Weather:
 		r = requests.get(request_url)
 		resp = requests.get(url=request_url)
 		self.result = json.loads(resp.text)
+		self.suggest_clothes()
 
 	def get_current_weather(self):
-		current = self.result["currently"]
-		current_weather = {
-			"summary": current["summary"],
-			"temp": int(round(current["temperature"])),
-		}
+		current_weather = self.result["currently"]
 
 		return current_weather
 
 	def get_daily_weather(self):
-		daily_result = self.result["daily"]["data"][0]
-		daily_weather = {
-			"summary": daily_result["summary"],
-			"icon": daily_result["icon"],
-			"wind_speed": int(round(daily_result["windSpeed"])),
-			"temp_high": int(round(daily_result["temperatureMax"])),
-			"temp_low": int(round(daily_result["temperatureMin"])),
-		}
+		daily_weather = self.result["daily"]["data"][0]
 		return daily_weather
 
 	def get_hourly_weather(self):
@@ -51,6 +42,16 @@ class Weather:
 		converted = datetime.fromtimestamp(epoch_time).strftime('%H:%M')
 		return converted
 
+	def suggest_clothes(self):
+		suggestion = ""
+		daily = self.get_daily_weather()
+		avg_temp = (daily["apparentTemperatureMin"] + daily["apparentTemperatureMax"]) / 2
+		print("Max: " + str(daily["apparentTemperatureMax"]) + " | " + self.convert_epoch(daily["apparentTemperatureMaxTime"]))
+		print("Min: " + str(daily["apparentTemperatureMin"]) + " | " + self.convert_epoch(daily["apparentTemperatureMinTime"]))
+		print("Average: " + str(avg_temp))
+		if avg_temp < 14:
+			suggestion = "Coat"
+		return suggestion
 
 	def set_location(self, long, lat):
 		self.location["lon"] = lon
