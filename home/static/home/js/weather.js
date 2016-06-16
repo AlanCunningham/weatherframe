@@ -17,7 +17,12 @@ var weather = {
 			weather_type = $(this).attr("class");
 			var skycons = new Skycons({"color": "white"});
 			skycons.add(this, weather_type);
-			skycons.play();
+			// Too many animations is jumpy on the Pi 2.  Only animate rain.
+			// Will replace this with static icons
+			if (weather_type === "rain"){
+				skycons.play();
+			}
+
 		});
 	},
 
