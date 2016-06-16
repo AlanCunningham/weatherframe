@@ -6,6 +6,7 @@
 window.onload = init;
 
 function init() {
-	weather.set_icon();
+	weather.set_main_icon();
+	weather.set_timeline_icons();
 	update_time();
 }

@@ -42,7 +42,7 @@
 					<h5 class="min-max-temp grey-text">{{daily_weather.temperatureMin|floatformat:"0"}}° | {{daily_weather.temperatureMax|floatformat:"0"}}°</h5>
 				</div>
 				<div class="col s4">
-					<canvas id="icon1" class="{{daily_weather.icon}}" width="128" height="128">
+					<canvas id="main-weather" class="{{daily_weather.icon}}" width="128" height="128">
 						{{daily_weather.icon}}
 					</canvas>
 				</div>
@@ -55,9 +55,13 @@
 				<h5 class="header col s12 light">{{clothes_suggestion}}</h5>
 			</div>
 
-			<div class="row center hourly-weather">
+			<div id="timeline" class="row center hourly-weather">
 				{% for hour in hourly_weather|slice:"1:13" %}
-					<div class="col s1 hour {{hour.icon}}">{{hour.time}}</div>
+					<div class="col s1 hour {{hour.icon}}">{{hour.time}}
+						<canvas class="{{hour.icon}}" width="32" height="32">
+							{{hour.icon}}
+						</canvas>
+					</div>
 				{% endfor %}
 			</div>
 
