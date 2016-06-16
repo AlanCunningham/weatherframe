@@ -15,19 +15,19 @@ var weather = {
 	get_icon_colour: function(weather) {
 		var default_colour = "#0288d1";
 		var colours = {
-			"night": "#0d47a1",
+			"clear-day": "#ffb300",
+			"partly-cloudy-day": "#ffb300",
+			"clear-night": "#0d47a1",
+			"partly-cloudy-night": "#0d47a1",
 			"rain": "#0288d1",
-			"sun": "#ffb300",
-			"clear": "#ffb300",
-			"partly-cloudy": "#ffb300",
-			"cloud": "#9e9e9e",
-			"sleet": "#757575",
-			"snow": "#e0e0e0",
-			"wind": "#757575",
+			"sleet": "#0288d1",
+			"cloudy": "#9e9e9e",
+			"wind": "#9e9e9e",
+			"snow": "#90a4ae",
 			"fog": "#757575",
 		}
 		for (var key in colours){
-			if (weather.indexOf(key) > -1) {
+			if (key === weather) {
 				return colours[key];
 			}
 		}

@@ -8,8 +8,8 @@
 .weather-info {
 	transition: background 1s ease-in;
 
-	.temp {
-		display: inline;
+	.temp > * {
+		display: inline-block;
 	}
 
 	.highlight {
@@ -29,32 +29,38 @@
 			}
 		}
 
-		.cloudy {
-			background: $c_cloudy;
+		.clear-day {
+			background: $c_sunny;
 		}
 
-		.fog,
-		.sleet {
-			background: $c_fog;
+		.clear-night,
+		.partly-cloudy-night {
+			background: $c_clear_night;
+			color: white;
 		}
 
 		.partly-cloudy-day {
 			background: $c_partly_cloudy;
 		}
 
-		.sun,
-		.clear-day {
-			background: $c_sunny;
-		}
-
-		.clear-night {
-			background: $c_clear_night;
+		.rain,
+		.sleet {
+			background: $c_rainy;
 			color: white;
 		}
 
-		.rain {
-			background: $c_rainy;
+		.snow {
+			background: $c_snow;
 		}
 
+		.fog {
+			background: $c_fog;
+			color: white;
+		}
+
+		.cloudy,
+		.wind {
+			background: $c_cloudy;
+		}
 	}
 }
