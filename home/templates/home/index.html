@@ -39,7 +39,7 @@
 			<div class="weather-info row center valign-wrapper">
 				<div class="col s4 temp">
 					<h1 class="header highlight">{{current_weather.temperature|floatformat:"0"}}°</h1>
-					<h5 class="min-max-temp grey-text">{{daily_weather.temperatureMin|floatformat:"0"}}° | {{daily_weather.temperatureMax|floatformat:"0"}}°</h5>
+					<h5 class="min-max-temp">{{daily_weather.temperatureMin|floatformat:"0"}}° | {{daily_weather.temperatureMax|floatformat:"0"}}°</h5>
 				</div>
 				<div class="col s4">
 					<canvas id="main-weather" class="{{daily_weather.icon}}" width="128" height="128">

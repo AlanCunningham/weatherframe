@@ -1,12 +1,12 @@
 // Weather info screen
 @import "colorscheme";
 
+
 .navbar {
-	background: $c_highlight;
+	background: rgba(2, 136, 209, 0.34);
 }
 
 .weather-info {
-	transition: background 1s ease-in;
 
 	.temp > * {
 		display: inline-block;
@@ -19,8 +19,6 @@
 	.hourly-weather {
 
 		> .hour {
-			border-right: 3px solid white;
-
 			&:first-child {
 				border-radius: 7px 0px 0px 7px;
 			}
@@ -62,5 +60,55 @@
 		.wind {
 			background: $c_cloudy;
 		}
+	}
+}
+
+
+html.dawn {
+	background: url("../images/dawn.png") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	color: white;
+}
+
+html.day {
+	background: url("../images/day.png") no-repeat center center fixed;
+	background-size: 100% auto;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	color: black;
+}
+
+.dusk {
+	background: url("../images/dusk.png") no-repeat center center fixed;
+	background-size: 100% auto;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	color: white;
+	.highlight {
+		color: $c_night_highlight;
+	}
+}
+
+.night {
+	background: url("../images/night.png") no-repeat center center fixed;
+	background-size: 100% auto;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	color: white;
+	.highlight {
+		color: $c_night_highlight;
 	}
 }

@@ -9,6 +9,7 @@ function update_time() {
 	var sec = pad(now.getSeconds());
 	time = hour + ":" + min + ":" + sec;
 	$(".time").text(time);
+	set_background(hour);
 	setTimeout(update_time, 1000);
 }
 
@@ -17,4 +18,24 @@ function pad(number) {
 		number = "0" + number;
 	}
 	return number;
+}
+
+function set_background(hour) {
+	console.log(hour);
+	if (hour >= 5 && hour < 9) {
+		$("html").removeClass("night");
+		$("html").addClass("dawn");
+	}
+	else if (hour >= 9 && hour < 19) {
+		$("html").removeClass("dawn");
+		$("html").addClass("day");
+	}
+	else if (hour >= 19 && hour < 21) {
+		$("html").removeClass("day");
+		$("html").addClass("dusk");
+	}
+	else {
+		$("html").removeClass("dusk");
+		$("html").addClass("night");
+	}
 }
