@@ -6,7 +6,6 @@ var weather = {
 	set_main_icon: function() {
 		var self = this;
 		weather_type = $("#main-weather").attr("class");
-		weather_type = "rain";
 		weather_colour = self.get_icon_colour(weather_type);
 		var skycons = new Skycons({"color": weather_colour});
 		skycons.add("main-weather", weather_type);
