@@ -42,15 +42,31 @@ class Weather:
 		converted = datetime.fromtimestamp(epoch_time).strftime('%H:%M')
 		return converted
 
+	# Suggest clothes based on the weather.
 	def suggest_clothes(self):
-		suggestion = ""
+		suggestions = []
 		daily = self.get_daily_weather()
+
+		# Average weather of the day
 		avg_temp = (daily["apparentTemperatureMin"] + daily["apparentTemperatureMax"]) / 2
-		print("Max: " + str(daily["apparentTemperatureMax"]) + " | " + self.convert_epoch(daily["apparentTemperatureMaxTime"]))
-		print("Min: " + str(daily["apparentTemperatureMin"]) + " | " + self.convert_epoch(daily["apparentTemperatureMinTime"]))
-		print("Average: " + str(avg_temp))
+		rain_chance = daily["precipProbability"]
+
+		# We should extract these out into something configurable
+		# Temperature based
 		if avg_temp < 14:
-			suggestion = "Coat"
+			suggestions.append("a coat")
+		elif avg_temp > 14 and avg_temp < 17:
+			suggestions.append("a jumper or shirt")
+		elif avg_temp > 17 and avg_temp < 20:
+			suggestions.append("a t-shirt")
+		else:
+			suggestions.append("some shorts")
+
+		# Rain
+		if rain_chance > 0.5:
+			suggestions.append(". Bring an umbrella")
+
+		suggestion = "Wear " + "".join(suggestions)
 		return suggestion
 
 	def set_location(self, long, lat):
