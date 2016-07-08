@@ -16,6 +16,14 @@
 		color: $c_highlight;
 	}
 
+	.right-weather > * {
+		margin: 0;
+	}
+
+	.clothes-suggestion {
+		color: white;
+	}
+
 	.hourly-weather {
 
 		> .hour {
@@ -60,10 +68,6 @@
 		.wind {
 			background: $c_cloudy;
 		}
-	}
-
-	.clothes-suggestion {
-		color: white;
 	}
 }
 

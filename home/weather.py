@@ -24,7 +24,6 @@ class Weather:
 
 	def get_current_weather(self):
 		current_weather = self.result["currently"]
-
 		return current_weather
 
 	def get_daily_weather(self):

@@ -5,6 +5,10 @@
   display: inline-block; }
 .weather-info .highlight {
   color: #0288d1; }
+.weather-info .right-weather > * {
+  margin: 0; }
+.weather-info .clothes-suggestion {
+  color: white; }
 .weather-info .hourly-weather > .hour:first-child {
   border-radius: 7px 0px 0px 7px; }
 .weather-info .hourly-weather > .hour:last-child {
@@ -29,8 +33,6 @@
 .weather-info .hourly-weather .cloudy,
 .weather-info .hourly-weather .wind {
   background: #9e9e9e; }
-.weather-info .clothes-suggestion {
-  color: white; }
 
 html.dawn {
   background: url("../images/dawn.png") no-repeat center center fixed;

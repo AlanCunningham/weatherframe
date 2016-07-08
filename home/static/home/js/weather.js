@@ -19,7 +19,10 @@ var weather = {
 			skycons.add(this, weather_type);
 			// Too many animations is jumpy on the Pi 2.  Only animate rain.
 			// Will replace this with static icons
-			if (weather_type === "rain"){
+			if (weather_type === "rain"
+				|| weather_type === "wind"
+				|| weather_type === "snow"
+				|| weather_type === "sleet"){
 				skycons.play();
 			}
 

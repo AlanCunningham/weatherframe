@@ -36,19 +36,24 @@
 			<div class="summary">
 				<h3 class="center weather-summary">{{daily_weather.summary}}</h3>
 			</div>
-			<div class="weather-info row center valign-wrapper">
+			<div class="row center valign-wrapper left-weather">
 				<div class="col s4 temp">
 					<h1 class="header highlight">{{current_weather.apparentTemperature|floatformat:"0"}}°</h1>
 					<h5 class="min-max-temp">{{daily_weather.temperatureMin|floatformat:"0"}}° | {{daily_weather.temperatureMax|floatformat:"0"}}°</h5>
 				</div>
-				<div class="col s4">
+				<div class="col s4 center-weather">
 					<canvas id="main-weather" class="{{daily_weather.icon}}" width="128" height="128">
 						{{daily_weather.icon}}
 					</canvas>
 				</div>
-				<div class="col s4">
-					<h5>Wind speeds of</h5>
-					<h4 class="highlight">{{daily_weather.windSpeed|floatformat:"0"}} mph</h4>
+				<div class="col s4 right-weather">
+					{% if daily_weather.icon == "rain" or daily_weather.icon == "sleet" or daily_weather.icon == "snow" %}
+						<h5>Chance of rain:</h5>
+						<h2 class="highlight">{{daily_weather.precipProbability}}</h2>
+					{% else %}
+						<h5>Wind speeds of</h5>
+						<h2 class="highlight">{{daily_weather.windSpeed|floatformat:"0"}} mph</h2>
+					{% endif %}
 				</div>
 			</div>
 			<div class="row center clothes-suggestion">
