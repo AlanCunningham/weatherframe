@@ -21,7 +21,6 @@ function pad(number) {
 }
 
 function set_background(hour) {
-	console.log(hour);
 	if (hour >= 5 && hour < 9) {
 		$("html").removeClass("night");
 		$("html").addClass("dawn");
