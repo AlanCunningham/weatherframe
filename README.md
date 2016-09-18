@@ -1,4 +1,4 @@
-# PiFrame
+# Weatherframe
 Little weather station using the [DarkSky API](https://developer.forecast.io/) 
 and [Django](https://www.djangoproject.com/), with the remarkable ability to 
 suggest what clothes you should wear for the day.
