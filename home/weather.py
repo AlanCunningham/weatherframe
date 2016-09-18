@@ -1,22 +1,27 @@
 # Author: Alan Cunningham
 # Date 30/05/2016
 
-
+from django.conf import settings
 import requests
 import json
 from datetime import datetime
 import time
 
 class Weather:
-	location = {"lon": "51.4927245", "lat": "-0.2122906"}
-	api_key = "6d73c99eb441945dcb1d1434a49db41e"
-	url = "https://api.forecast.io/forecast/"
-	units = "uk2"
+
 	result = None
 
 	def __init__(self):
+		url = "https://api.forecast.io/forecast/"
+
+		# Get the API key, location and other parameters
+		api_key = settings.DARKSKY_API_KEY
+		lon = settings.DARKSKY_LONGITUDE
+		lat = settings.DARKSKY_LATITUDE
+		units = settings.DARKSKY_UNITS
+
 		# Make the initial weather request
-		request_url = self.url + self.api_key + "/" + self.location["lon"] + "," + self.location["lat"] + "?units=" + self.units
+		request_url = url + api_key + "/" + lon + "," + lat + "?units=" + units
 		r = requests.get(request_url)
 		resp = requests.get(url=request_url)
 		self.result = json.loads(resp.text)

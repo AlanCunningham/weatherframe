@@ -122,3 +122,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 PYTHONDONTWRITEBYTECODE = True
+
+# Uncomment and enter your Darksky API key here
+# DARKSKY_API_KEY = 'your_darksky_api_key'
+
+DARKSKY_LONGITUDE = "51.5074"
+
+DARKSKY_LATITUDE = "-0.1278"
+
+DARKSKY_UNITS = "uk2"
